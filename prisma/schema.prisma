@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id          String   @id @default(cuid())
+  username    String   @unique
+  avatar      String   @default("default")
+  totalScore  Int      @default(0)
+  coins       Int      @default(0)
+  hints       Int      @default(3)
+  lives       Int      @default(5)
+  maxLives    Int      @default(5)
+  streak      Int      @default(0)
+  maxStreak   Int      @default(0)
+  lastPlayed  DateTime?
+  theme       String   @default("cyber-purple")
+  isPremium   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  progress     PlayerProgress[]
+  leaderboard  Leaderboard[]
+  subscription Subscription?
+
+}
+
+model PlayerProgress {
+  id        String   @id @default(cuid())
+  playerId  String
+  level     Int
+  completed Boolean  @default(false)
+  score     Int      @default(0)
+  timeSpent Int      @default(0)
+  attempts  Int      @default(0)
+  hintUsed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, level])
+}
+
+model Leaderboard {
+  id        String   @id @default(cuid())
+  playerId  String
+  score     Int
+  level     Int
+  mode      String   @default("classic")
+  createdAt DateTime @default(now())
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([score(sort: Desc)])
+}
+
+model DailyChallenge {
+  id        String   @id @default(cuid())
+  date      String   @unique
+  level     Int
+  puzzleType String
+  solvedBy  Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Subscription {
+  id                  String    @id @default(cuid())
+  playerId            String    @unique
+  plan                String    @default("free")
+  status              String    @default("active")
+  startDate           DateTime  @default(now())
+  expiryDate          DateTime?
+  autoRenew           Boolean   @default(true)
+  coinsPrice          Int       @default(0)
+  paymentProvider     String    @default("coins")
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  playerId        String
+  utr             String   @unique
+  amount          Int
+  plan            String
+  status          String   @default("pending")
+  paymentMethod   String   @default("phonepe")
+  screenshotUrl   String?
+  verifiedAt      DateTime?
+  rejectedReason  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([utr])
+  @@index([playerId])
+  @@index([status])
+}
