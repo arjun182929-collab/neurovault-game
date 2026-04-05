@@ -315,7 +315,7 @@ export function GameplayScreen() {
     if (!puzzle || puzzle.type !== 'memory') return;
 
     const displayTime = puzzle.memoryDisplayTime ?? 3000;
-    setMemoryPhase('answering');
+    setMemoryPhase('showing');
 
     const hideTimer = setTimeout(() => {
       setMemoryPhase('hiding');
