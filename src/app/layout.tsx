@@ -56,6 +56,8 @@ export default function RootLayout({
   src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"
   strategy="afterInteractive"
 />
+        <script src="https://pl29066647.profitablecpmratenetwork.com/7b/08/17/7b0817fd42674eb9661de9a93643e768.js"></script>
+
         <main className="min-h-screen flex flex-col relative">
           {children}
         </main>
