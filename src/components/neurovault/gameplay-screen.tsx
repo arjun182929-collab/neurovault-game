@@ -299,7 +299,7 @@ export function GameplayScreen() {
   } = useGameStore();
 
   // ── Local state ──
-  const [memoryPhase, setMemoryPhase] = useState<'showing' | 'hiding' | 'answering'>('answering');
+  const [memoryPhase, setMemoryPhase] = useState<'showing' | 'hiding' | 'answering'>('showing');
   const [shakingOption, setShakingOption] = useState<string | null>(null);
   const [correctOption, setCorrectOption] = useState<string | null>(null);
   const [hintVisible, setHintVisible] = useState(false);
