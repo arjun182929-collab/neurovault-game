@@ -40,17 +40,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-vault-bg text-foreground`}
       >
-        <script>
-  atOptions = {
-    'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"></script>
-        
+        <Script id="adsterra-options" strategy="afterInteractive">
+  {`
+    atOptions = {
+      'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
+      'format' : 'iframe',
+      'height' : 90,
+      'width' : 728,
+      'params' : {}
+    };
+  `}
+</Script>
+
+<Script
+  src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"
+  strategy="afterInteractive"
+/>
         <main className="min-h-screen flex flex-col relative">
           {children}
         </main>
