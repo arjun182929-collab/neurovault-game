@@ -299,7 +299,7 @@ export function GameplayScreen() {
   } = useGameStore();
 
   // ── Local state ──
-  const [memoryPhase, setMemoryPhase] = useState<'showing' | 'hiding' | 'answering'>('showing');
+  const [memoryPhase, setMemoryPhase] = useState<'showing' | 'hiding' | 'answering'>('answering');
   const [shakingOption, setShakingOption] = useState<string | null>(null);
   const [correctOption, setCorrectOption] = useState<string | null>(null);
   const [hintVisible, setHintVisible] = useState(false);
@@ -315,7 +315,7 @@ export function GameplayScreen() {
     if (!puzzle || puzzle.type !== 'memory') return;
 
     const displayTime = puzzle.memoryDisplayTime ?? 3000;
-    setMemoryPhase('showing');
+    setMemoryPhase('answering');
 
     const hideTimer = setTimeout(() => {
       setMemoryPhase('hiding');
