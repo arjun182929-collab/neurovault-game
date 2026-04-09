@@ -52,10 +52,7 @@ export default function RootLayout({
   `}
 </Script>
 
-<Script
-  src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"
-  strategy="afterInteractive"
-/>
+
         
         <main className="min-h-screen flex flex-col relative">
           {children}
