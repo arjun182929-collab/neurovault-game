@@ -37,23 +37,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+  <head>
+  <Script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8805475385005623"
+    crossOrigin="anonymous"
+    strategy="afterInteractive"
+  />
+</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-vault-bg text-foreground`}
       >
-        <Script id="adsterra-options" strategy="afterInteractive">
-  {`
-    atOptions = {
-      'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
-      'format' : 'iframe',
-      'height' : 90,
-      'width' : 728,
-      'params' : {}
-    };
-  `}
-</Script>
-
-
-        
         <main className="min-h-screen flex flex-col relative">
           {children}
         </main>
