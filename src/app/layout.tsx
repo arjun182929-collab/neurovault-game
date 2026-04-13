@@ -44,7 +44,6 @@ export default function RootLayout({
     crossOrigin="anonymous"
     strategy="afterInteractive"
   />
-    
 </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-vault-bg text-foreground`}
