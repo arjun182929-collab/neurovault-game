@@ -126,6 +126,17 @@ export default function NeuroVaultApp() {
           )}
         </div>
       </div>
+      <script>
+  atOptions = {
+    'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"></script>
+
 
       {/* Premium Gate Modal - global overlay */}
       <PremiumGate />
