@@ -14,6 +14,7 @@ import { PremiumGate } from '@/components/neurovault/premium-gate';
 import { AdminScreen } from '@/components/neurovault/admin-screen';
 import { PrivacyScreen } from '@/components/neurovault/privacy-screen';
 import { useEffect, useRef } from 'react';
+import Script from "next/script";
 
 export default function NeuroVaultApp() {
   const currentScreen = useGameStore((s) => s.currentScreen);
@@ -109,7 +110,7 @@ export default function NeuroVaultApp() {
           {currentScreen === 'gameplay' && <GameplayScreen />}
           {currentScreen === 'result' && <ResultScreen />}
           {currentScreen === 'leaderboard' && <LeaderboardScreen />}
-          {currentScreen === 'profile' && <ProfileScreen />}
+          {currentScreen === 'profile' && <ProfileScreen />}V
           {currentScreen === 'store' && <StoreScreen />}
           {currentScreen === 'daily' && <DailyChallengeScreen />}
           {currentScreen === 'subscription' && <SubscriptionScreen />}
@@ -126,17 +127,22 @@ export default function NeuroVaultApp() {
           )}
         </div>
       </div>
-      <script>
-  atOptions = {
-    'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"></script>
+     <Script id="adsterra-banner">
+  {`
+    atOptions = {
+      'key' : 'c074d08b5aad838eaf5e659a0adf0c7b',
+      'format' : 'iframe',
+      'height' : 90,
+      'width' : 728,
+      'params' : {}
+    };
+  `}
+</Script>
 
+<Script
+  src="https://www.highperformanceformat.com/c074d08b5aad838eaf5e659a0adf0c7b/invoke.js"
+  strategy="afterInteractive"
+/>
 
       {/* Premium Gate Modal - global overlay */}
       <PremiumGate />
